@@ -1,0 +1,8 @@
+idk dude i had to install windows subsystem for linux
+for a linux emulator, then checked the file type with 'file' command
+it's an ELF file but no elf command, u had to run it with bash with ./'filename'
+course that didn't work cuz the permissions are weird so i followed the web
+https://ctftime.org/writeup/26531
+used chmod +x chall
+that worked idk how it did, something about changing the file itu an exe in linux terms
+then combined that string with the string u get when connecting to the server with nc

