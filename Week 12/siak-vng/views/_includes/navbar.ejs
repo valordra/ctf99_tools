@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">SIAK VNG</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <% if (users) { %>
+                <li class="nav-item">
+                    <a class="nav-link <% if (active_page == 'class_list') { %> active <% } %>" href="/class">Class list</a>
+                </li>
+                <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                    <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                    <hr class="d-lg-none my-2 text-white-50">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Log out</a>
+                </li>
+                <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link <% if (active_page == 'login') { %> active <% } %>" href="/login">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <% if (active_page == 'register') { %> active <% } %>" href="/register">Register</a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Weeb Archiver</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Weeb Archiver</a>
+      </div>
+    </nav>
+    
+    <main class="container">
+      <div class="row px-4 py-5 my-5">
+        <div class="col text-center">
+          <img th:src="@{/img/weeb1.webp}" width="300px" alt="weeb"/>
+        </div>
+        <div class="col my-auto">
+          <h2>Archive your <img th:src="@{/img/loli.png}" width="30px" alt="loli"/>!</h2>
+          <div th:if="${success != null}" th:text="${success}" class="alert alert-success" role="alert"></div>
+          <div th:if="${error != null}" th:text="${error}" class="alert alert-danger" role="alert"></div>
+          <form class="mt-3" method="POST" th:saction="@{/bungkus}">
+            <div class="mb-3">
+              <label for="boxLink" class="form-label">Link</label>
+              <input type="text" class="form-control" id="boxLink" name="link" placeholder="http://myloli.com/image.png" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Archive!</button>
+          </form>
+        </div>    
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

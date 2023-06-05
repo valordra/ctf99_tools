@@ -1,0 +1,12 @@
+FROM faishol27/gunicorn:latest
+
+COPY src/requirements.txt .
+RUN apk --no-cache add py3-pip python3-dev && \
+    pip3 install -r requirements.txt && rm requirements.txt && \
+    apk del py3-pip python3-dev
+
+ENV GUNICORN_WSGI_MODULE=main:app
+COPY . .
+
+RUN mv flag.txt /redacted
+RUN chmod 444 /redacted

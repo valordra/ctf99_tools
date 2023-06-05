@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <%- include('_includes/head.ejs', {'title': 'Register'}); -%>
+  <body>
+    <%- include('_includes/navbar.ejs', {'active_page': 'register'}); -%>
+    <main class="container">
+      <div class="row mt-5">
+        <div class="mx-auto col-4">
+          <h2>Create a new account!</h2>
+          <form class="mt-3" method="POST">
+            <% if (err_msg) { %>
+              <div class="alert alert-danger" role="alert"><%= err_msg %></div>
+            <% } %>
+            <div class="mb-3">
+              <label for="textboxUsername" class="form-label">Username</label>
+              <input type="text" class="form-control" id="textboxUsername" name="username" required>
+            </div>
+            <div class="mb-3">
+              <label for="textboxPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="textboxPassword" name="password" required>
+            </div>
+            <div class="mb-3">
+              <label for="textboxPasswordValidation" class="form-label">Password Validation</label>
+              <input type="password" class="form-control" id="textboxPasswordValidation" name="password_validation" required>
+            </div>
+            <div class="mb-3">
+              <label for="textboxFaculty" class="form-label">Faculty</label>
+              <select class="form-select" name="faculty" required>
+                <option selected disabled>Pilih fakultas</option>
+                <option value="FASILKOM">Fakultas Ilmu Komputer</option>
+                <option value="FIB">Fakultas Ilmu Pengetahuan Budaya</option>
+                <option value="FMIPA">Fakultas MIPA</option>
+                <option value="FT">Fakultas Teknik</option>
+                <option value="FH">Fakultas Hukum</option>
+                <option value="FISIP">Fakultas Ilmu Sosial dan Politik</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <%- include('_includes/footer.ejs'); -%>
+  </body>
+</html>

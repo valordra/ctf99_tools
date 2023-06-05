@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+    - "9016:80"
+networks:
+  default:
+    ipam:
+      config:
+      - subnet: 172.32.16.0/24

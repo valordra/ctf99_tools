@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <%- include('_includes/head.ejs', {'title': 'Class List'}); -%>
+  <body>
+    <%- include('_includes/navbar.ejs', {'active_page': 'class_list'}); -%>
+    <main class="container">
+      <div class="row mt-5">
+        <div class="mx-auto col-6">
+          <h2>Faculty Class List</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Capacity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i = 0; i < classes.length; i++) { %>
+                <tr>
+                  <td><%= classes[i].class_name %></td>
+                  <td><%= classes[i].capacity %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <%- include('_includes/footer.ejs'); -%>
+  </body>
+</html>
