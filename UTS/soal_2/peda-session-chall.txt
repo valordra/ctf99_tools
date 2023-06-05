@@ -1,0 +1,3 @@
+break *vuln+42
+break *onegaishimasu+22
+
