@@ -6,6 +6,7 @@ RUN apk --no-cache add py3-pip python3-dev && \
     apk del py3-pip python3-dev
 
 ENV GUNICORN_WSGI_MODULE=website.wsgi:application
+ENV PYTHONUNBUFFERED=TRUE
 COPY src .
 RUN chmod +x *.sh
 

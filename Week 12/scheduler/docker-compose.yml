@@ -6,6 +6,8 @@ services:
     environment:
       POSTGRES_PASSWORD: redacted
       POSTGRES_DB: redacted
+    ports:
+      - "5432:5432"
   web:
     build: .
     restart: always

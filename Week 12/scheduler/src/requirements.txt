@@ -4,3 +4,4 @@ Django==4.0.5
 psycopg2-binary==2.9.5
 sqlparse==0.4.3
 typing_extensions==4.5.0
+django-debug-toolbar==4.0.0

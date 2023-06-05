@@ -20,4 +20,5 @@ from app.views import index, new_page
 urlpatterns = [
     path('', index),
     path('new/', new_page),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
