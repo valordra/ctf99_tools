@@ -2,8 +2,8 @@ from pwn import *
 
 BINARY = ['./chall']
 IP, PORT = 'ctf99.cs.ui.ac.id', 10015
-LOCAL = True
-DEBUG = True
+LOCAL = False
+DEBUG = False
 if LOCAL:
     if DEBUG:
         p = gdb.debug(BINARY, '''
